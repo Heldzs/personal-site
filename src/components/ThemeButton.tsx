@@ -1,23 +1,23 @@
 "use client";
 
-import { LuMoon, LuSun } from "react-icons/lu";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import { useTheme } from "next-themes";
 
 export function ThemeButton() {
   const { theme, setTheme } = useTheme();
+  const ismounted = useIsMounted();
+
+  if (!ismounted) {
+    return <div className="w-9 h-9" />;
+  }
 
   return (
     <button
-      aria-label="Toggle theme"
-      type="button"
-      className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 p-2 text-zinc-400 transition hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-300 dark:bg-zinc-200 dark:text-zinc-500 dark:hover:text-zinc-900 dark:focus:ring-zinc-900 dark:focus:ring-offset-zinc-900"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="flex items-center justify-center w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors text-sm"
+      aria-label="Alternar tema"
     >
-      {theme === "dark" ? (
-        <LuSun className="h-5 w-5" />
-      ) : (
-        <LuMoon className="h-5 w-5" />
-      )}
+      {theme === "dark" ? "🌙" : "☀️"}
     </button>
   );
 }

@@ -11,7 +11,7 @@ import {
 
 export function HeaderSection() {
   return (
-    <section className="relative w-full min-h-screen flex items-center bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50 py-32">
+    <section className="relative w-full min-h-screen flex items-center py-32 overflow-x-hidden">
       <aside className="hidden md:flex absolute left-4 lg:left-8 xl:left-12 top-1/2 -translate-y-1/2 flex-col gap-6 z-40">
         <FadeIn direction="right" delay={0.8}>
           <a
@@ -45,12 +45,6 @@ export function HeaderSection() {
           </a>
         </FadeIn>
       </aside>
-
-      <div className="absolute bottom-8 right-1/2 -translate-x-1/2 md:right-8 xl:right-12 md:translate-x-0 z-40">
-        <FadeIn direction="up" delay={1.2}>
-          <ArrowDownIcon className="w-8 h-8 text-zinc-400 dark:text-zinc-600 animate-bounce" />
-        </FadeIn>
-      </div>
 
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10">
         <div className="flex flex-col select-none">
@@ -87,6 +81,12 @@ export function HeaderSection() {
           </FadeIn>
         </div>
       </Container>
+
+      <div className="absolute bottom-8 right-1/2 -translate-x-1/2 md:right-8 xl:right-12 md:translate-x-0 z-40">
+        <FadeIn direction="up" delay={1.2}>
+          <ArrowDownIcon className="w-8 h-8 text-zinc-400 dark:text-zinc-600 animate-bounce" />
+        </FadeIn>
+      </div>
     </section>
   );
 }

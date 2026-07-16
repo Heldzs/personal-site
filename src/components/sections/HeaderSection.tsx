@@ -26,7 +26,7 @@ export function HeaderSection() {
         </FadeIn>
         <FadeIn direction="right" delay={0.9}>
           <a
-            href="https://linkedin.com/in/seu-perfil"
+            href="https://linkedin.com/in/helder-júnior"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -37,7 +37,7 @@ export function HeaderSection() {
         </FadeIn>
         <FadeIn direction="right" delay={1.0}>
           <a
-            href="mailto:seu-email@exemplo.com"
+            href="mailto:helderjjobs@gmail.com"
             className="text-zinc-400 hover:text-red-500 transition-colors"
             aria-label="Email"
           >

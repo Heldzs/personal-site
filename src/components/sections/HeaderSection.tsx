@@ -11,7 +11,10 @@ import {
 
 export function HeaderSection() {
   return (
-    <section className="relative w-full min-h-screen flex items-center py-32 overflow-x-hidden">
+    <section
+      id="home"
+      className="relative w-full min-h-screen flex items-center py-32 overflow-x-hidden"
+    >
       <aside className="hidden md:flex absolute left-4 lg:left-8 xl:left-12 top-1/2 -translate-y-1/2 flex-col gap-6 z-40">
         <FadeIn direction="right" delay={0.8}>
           <a

@@ -44,6 +44,7 @@ export function Navbar() {
           Helder Junior
         </a>
 
+        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -59,30 +60,35 @@ export function Navbar() {
           <ThemeButton />
         </nav>
 
-        <button
-          className="md:hidden relative w-10 h-10 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Alternar menu"
-        >
-          <span
-            className={`absolute text-xl transition-all duration-300 ease-in-out ${
-              isMobileMenuOpen
-                ? "rotate-90 opacity-0 scale-50"
-                : "rotate-0 opacity-100 scale-100"
-            }`}
+        {/* Mobile menu button */}
+        <div className="flex md:hidden items-center gap-4">
+          <ThemeButton />
+
+          <button
+            className="md:hidden relative w-10 h-10 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Alternar menu"
           >
-            ☰
-          </span>
-          <span
-            className={`absolute text-xl transition-all duration-300 ease-in-out ${
-              isMobileMenuOpen
-                ? "rotate-0 opacity-100 scale-100"
-                : "-rotate-90 opacity-0 scale-50"
-            }`}
-          >
-            ✕
-          </span>
-        </button>
+            <span
+              className={`absolute text-xl transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "rotate-90 opacity-0 scale-50"
+                  : "rotate-0 opacity-100 scale-100"
+              }`}
+            >
+              ☰
+            </span>
+            <span
+              className={`absolute text-xl transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "rotate-0 opacity-100 scale-100"
+                  : "-rotate-90 opacity-0 scale-50"
+              }`}
+            >
+              ✕
+            </span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -113,12 +119,6 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
-              <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300">
-                Alternar Tema
-              </span>
-              <ThemeButton />
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Container } from "../layout/Container";
 import { FadeIn } from "../motion/FadeIn";
-import { stackCategories, marqueeTechs } from "@/data/stackData";
+import { stackCategories } from "@/data/stackData";
+import { InfiniteMarquee } from "../motion/InfiniteMarquee";
 
 export function StackSection() {
   return (
@@ -52,33 +52,10 @@ export function StackSection() {
           ))}
         </div>
       </Container>
-      <FadeIn direction="up" delay={0.4} className="w-full mt-24">
-        <div className="relative flex overflow-x-hidden">
-          <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-zinc-50 dark:from-zinc-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-zinc-50 dark:from-zinc-950 to-transparent z-10 pointer-events-none" />
 
-          <motion.div
-            className="flex gap-16 whitespace-nowrap items-center py-4"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              duration: 30,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-          >
-            {[...marqueeTechs, ...marqueeTechs].map((tech, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-4 text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors cursor-default"
-              >
-                {tech.icon}
-                <span className="text-2xl font-bold tracking-tight">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+      {/* Tech Marquee */}
+      <FadeIn direction="up" delay={0.4} className="w-full mt-24">
+        <InfiniteMarquee />
       </FadeIn>
     </section>
   );

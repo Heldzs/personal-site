@@ -46,7 +46,7 @@ export function HeaderSection() {
         </FadeIn>
       </aside>
 
-      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10 md:pl-20 lg:pl-28 xl:pl-32 2xl:pl-8">
         <div className="flex flex-col select-none">
           <FadeIn direction="up" delay={0.1}>
             <h1 className="text-5xl sm:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black tracking-tighter leading-[0.9] text-zinc-900 dark:text-zinc-50">
@@ -82,7 +82,7 @@ export function HeaderSection() {
         </div>
       </Container>
 
-      <div className="absolute bottom-8 right-1/2 -translate-x-1/2 md:right-8 xl:right-12 md:translate-x-0 z-40">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 xl:right-12 md:translate-x-0 z-40">
         <FadeIn direction="up" delay={1.2}>
           <ArrowDownIcon className="w-8 h-8 text-zinc-400 dark:text-zinc-600 animate-bounce" />
         </FadeIn>

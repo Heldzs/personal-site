@@ -54,7 +54,7 @@ export function StackSection() {
       </Container>
 
       {/* Tech Marquee */}
-      <FadeIn direction="up" delay={0.4} className="w-full mt-24">
+      <FadeIn direction="up" delay={0.4} className="w-full mt-10">
         <InfiniteMarquee />
       </FadeIn>
     </section>

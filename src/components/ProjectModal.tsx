@@ -163,17 +163,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             {project.title}
           </h4>
 
-          <div className="flex flex-wrap gap-2 mb-8 shrink-0">
-            {project.techs.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-xs font-medium bg-zinc-200 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
           <div className="prose prose-zinc dark:prose-invert max-w-none mb-6 flex-1 min-h-0 overflow-y-auto pr-4 scrollbar-thin">
             <div className="space-y-4">
               {renderDescriptionContent(

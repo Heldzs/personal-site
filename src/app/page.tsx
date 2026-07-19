@@ -25,7 +25,7 @@ export default function HomePage() {
       <BackgroundAura />
 
       <div className="relative w-full">
-        <div className="sticky top-0 h-screen w-full -z-10">
+        <div className="sticky top-0 h-screen w-full z-0">
           <HeaderSection />
         </div>
         <div className="relative z-10 w-full bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-2xl border-t border-zinc-200 dark:border-zinc-800 shadow-2xl">

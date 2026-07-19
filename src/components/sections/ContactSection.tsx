@@ -11,9 +11,9 @@ export function ContactSection() {
       <Container className="flex flex-col items-center justify-center max-w-3xl">
         <FadeIn direction="right">
           <h2 className="text-sm font-bold tracking-widest uppercase text-zinc-500 dark:text-zinc-400 mb-2">
-            01. Qual é o próximo passo?
+            04. Qual é o próximo passo?
           </h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">
             Vamos Conversar.
           </h3>
         </FadeIn>
@@ -57,19 +57,6 @@ export function ContactSection() {
           </div>
         </FadeIn>
       </Container>
-
-      <div className="w-full max-w-7xl mx-auto mt-24 border-t border-zinc-200 dark:border-zinc-800/80 pt-8 px-4 flex flex-col items-center">
-        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-          Desenvolvido com muito foco e Next.js por{" "}
-          <span className="text-zinc-900 dark:text-zinc-100">
-            Helder Junior
-          </span>
-          .
-        </p>
-        <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-2">
-          © {new Date().getFullYear()} - Todos os direitos reservados.
-        </p>
-      </div>
     </section>
   );
 }

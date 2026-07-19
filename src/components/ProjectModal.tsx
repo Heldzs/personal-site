@@ -158,12 +158,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Direita: Conteúdo */}
-        <div className="lg:w-1/2 p-6 md:p-10 flex flex-col overflow-y-auto">
-          <h4 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-zinc-50 mb-4 pr-8">
+        <div className="lg:w-1/2 flex flex-col flex-1  min-h-0 p-6 md:p-10">
+          <h4 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-zinc-50 mb-4 pr-8 shrink-0">
             {project.title}
           </h4>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-8 shrink-0">
             {project.techs.map((tech) => (
               <span
                 key={tech}
@@ -174,7 +174,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             ))}
           </div>
 
-          <div className="prose prose-zinc dark:prose-invert max-w-none mb-10 flex-1">
+          <div className="prose prose-zinc dark:prose-invert max-w-none mb-6 flex-1 min-h-0 overflow-y-auto pr-4 scrollbar-thin">
             <div className="space-y-4">
               {renderDescriptionContent(
                 project.fullDescription || project.description,
@@ -183,7 +183,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Botões de Ação */}
-          <div className="flex flex-wrap items-center gap-4 mt-auto pt-6 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex flex-wrap items-center gap-4 mt-auto pt-6 border-t border-zinc-200 dark:border-zinc-800 shrink-0">
             <a
               href={project.liveUrl}
               target="_blank"

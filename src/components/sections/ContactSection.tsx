@@ -1,6 +1,7 @@
+import { ContactForm } from "../ContactForm";
 import { Container } from "../layout/Container";
 import { FadeIn } from "../motion/FadeIn";
-import { GithubIcon, LinkedinIcon, EmailIcon } from "@/lib/icons";
+import { GithubIcon, LinkedinIcon } from "@/lib/icons";
 
 export function ContactSection() {
   return (
@@ -25,19 +26,13 @@ export function ContactSection() {
             possível para responder!
           </p>
         </FadeIn>
-        <FadeIn direction="up" delay={0.3}>
-          <a
-            href="mailto:helderjjobs@gmail.com"
-            className="inline-flex items-center justify-center gap-3 px-8 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 font-bold rounded-full hover:scale-105 active:scale-95 transition-transform duration-300 shadow-xl shadow-zinc-900/20 dark:shadow-white/10"
-          >
-            <EmailIcon className="w-5 h-5" />
-            Dizer Olá
-          </a>
+        <FadeIn direction="up" delay={0.3} className="w-full">
+          <ContactForm />
         </FadeIn>
         <FadeIn direction="up" delay={0.4} className="mt-20">
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/seu-usuario"
+              href="https://github.com/Heldzs"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -46,7 +41,7 @@ export function ContactSection() {
               <GithubIcon className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/seu-usuario"
+              href="https://linkedin.com/in/helder-júnior"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

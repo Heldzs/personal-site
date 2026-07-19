@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { motion } from "motion/react";
 import { FaGithub } from "react-icons/fa";
 import { projectsData } from "@/data/projectsData";
@@ -18,6 +18,82 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       document.body.style.overflow = "";
     };
   }, []);
+
+  const formatInlineText = (text: string) => {
+    const segments = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).filter(Boolean);
+
+    return segments.map((segment, index) => {
+      if (segment.startsWith("**") && segment.endsWith("**")) {
+        return (
+          <strong key={`${segment}-${index}`}>{segment.slice(2, -2)}</strong>
+        );
+      }
+
+      if (segment.startsWith("*") && segment.endsWith("*")) {
+        return <em key={`${segment}-${index}`}>{segment.slice(1, -1)}</em>;
+      }
+
+      return <Fragment key={`${segment}-${index}`}>{segment}</Fragment>;
+    });
+  };
+
+  const renderDescriptionContent = (content: string) => {
+    const lines = content.split("\n").map((line) => line.trim());
+    const blocks: React.ReactNode[] = [];
+    let paragraphLines: string[] = [];
+    let listItems: string[] = [];
+
+    const flushParagraph = () => {
+      if (paragraphLines.length > 0) {
+        blocks.push(
+          <p
+            key={`paragraph-${blocks.length}`}
+            className="text-zinc-600 dark:text-zinc-400 leading-relaxed"
+          >
+            {formatInlineText(paragraphLines.join(" "))}
+          </p>,
+        );
+        paragraphLines = [];
+      }
+    };
+
+    const flushList = () => {
+      if (listItems.length > 0) {
+        blocks.push(
+          <ul
+            key={`list-${blocks.length}`}
+            className="list-disc pl-5 space-y-2 text-zinc-600 dark:text-zinc-400 leading-relaxed"
+          >
+            {listItems.map((item, index) => (
+              <li key={`${item}-${index}`}>{formatInlineText(item)}</li>
+            ))}
+          </ul>,
+        );
+        listItems = [];
+      }
+    };
+
+    lines.forEach((line) => {
+      if (!line) {
+        flushParagraph();
+        flushList();
+        return;
+      }
+
+      if (line.startsWith("- ")) {
+        flushParagraph();
+        listItems.push(line.slice(2));
+        return;
+      }
+
+      paragraphLines.push(line);
+    });
+
+    flushParagraph();
+    flushList();
+
+    return blocks;
+  };
 
   // Fecha o modal se o utilizador pressionar a tecla ESC no teclado
   useEffect(() => {
@@ -99,9 +175,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="prose prose-zinc dark:prose-invert max-w-none mb-10 flex-1">
-            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              {project.fullDescription || project.description}
-            </p>
+            <div className="space-y-4">
+              {renderDescriptionContent(
+                project.fullDescription || project.description,
+              )}
+            </div>
           </div>
 
           {/* Botões de Ação */}

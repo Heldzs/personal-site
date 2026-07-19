@@ -15,6 +15,35 @@ export function Navbar() {
     { name: "Contato", href: "#contact" },
   ];
 
+  const scrollTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    const startY = window.scrollY;
+    const duration = 1000; // 1 segundo
+    let startTime: number | null = null;
+
+    const easeInOutQuart = (t: number) => {
+      return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    };
+
+    const animateScroll = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const timeElapsed = timestamp - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      const ease = easeInOutQuart(progress);
+
+      window.scrollTo(0, startY - startY * ease);
+
+      if (timeElapsed < duration) {
+        window.requestAnimationFrame(animateScroll);
+      }
+    };
+
+    window.requestAnimationFrame(animateScroll);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -50,6 +79,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={link.href === "#home" ? scrollTop : undefined}
               className="relative text-sm font-medium tracking-wide  text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50 transition-colors group"
             >
               {link.name}
@@ -114,7 +144,11 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className="block py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={
+                  link.href === "#home"
+                    ? scrollTop
+                    : () => setIsMobileMenuOpen(false)
+                }
               >
                 {link.name}
               </a>

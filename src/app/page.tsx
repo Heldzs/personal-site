@@ -24,15 +24,16 @@ export default function HomePage() {
     <main className="relative flex min-h-screen flex-col text-zinc-900 dark:text-zinc-50">
       <BackgroundAura />
 
-      <div className="sticky top-0 h-screen w-full -z-10">
-        <HeaderSection />
-      </div>
-
-      <div className="relative z-10 w-full bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-2xl border-t border-zinc-200 dark:border-zinc-800 shadow-2xl">
-        <AboutSection />
-        <StackSection />
-        <ProjectsSection />
-        <ContactSection />
+      <div className="relative w-full">
+        <div className="sticky top-0 h-screen w-full -z-10">
+          <HeaderSection />
+        </div>
+        <div className="relative z-10 w-full bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-2xl border-t border-zinc-200 dark:border-zinc-800 shadow-2xl">
+          <AboutSection />
+          <StackSection />
+          <ProjectsSection />
+          <ContactSection />
+        </div>
       </div>
     </main>
   );

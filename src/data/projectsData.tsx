@@ -26,6 +26,7 @@ export const projectsData = [
         />
       </svg>
     ),
+    image: "/images/portfolio.png",
   },
   {
     id: 2,

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { projectsData } from "@/data/projectsData";
 import { FaGithub } from "react-icons/fa";
 
@@ -11,15 +12,24 @@ export function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="group flex flex-col bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden"
+      className="group flex flex-col cursor-pointer bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden"
     >
       {/* Imagem do Projeto */}
       <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 block">
-        <div
-          className={`absolute inset-0 bg-linear-to-br ${project.gradient} transition-transform duration-500 group-hover:scale-105 flex items-center justify-center`}
-        >
-          {project.icon}
-        </div>
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`Imagem do projeto ${project.title}`}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div
+            className={`absolute inset-0 bg-linear-to-br ${project.gradient} transition-transform duration-500 group-hover:scale-105 flex items-center justify-center`}
+          >
+            {project.icon}
+          </div>
+        )}
       </div>
 
       {/* Conteúdo do Card */}
@@ -34,6 +44,7 @@ export function ProjectCard({
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
             aria-label="Ver código no GitHub"
+            onClick={(e) => e.stopPropagation()}
           >
             <FaGithub className="w-5 h-5" />
           </a>

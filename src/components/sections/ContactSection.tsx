@@ -29,6 +29,7 @@ export function ContactSection() {
         <FadeIn direction="up" delay={0.3} className="w-full">
           <ContactForm />
         </FadeIn>
+
         <FadeIn direction="up" delay={0.4} className="mt-20">
           <div className="flex items-center gap-6">
             <a

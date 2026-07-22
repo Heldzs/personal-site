@@ -84,5 +84,6 @@ Roteamento e Permissões: Controle de acesso baseado em papéis (Role-Based Acce
         />
       </svg>
     ),
+    image: "/images/campus_link.png",
   },
 ];

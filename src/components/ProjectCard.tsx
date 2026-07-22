@@ -21,7 +21,7 @@ export function ProjectCard({
             src={project.image}
             alt={`Imagem do projeto ${project.title}`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div

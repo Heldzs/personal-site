@@ -65,7 +65,7 @@ Roteamento e Permissões: Controle de acesso baseado em papéis (Role-Based Acce
       "Sonner",
       "Jest",
     ],
-    liveUrl: "",
+    liveUrl: "https://webacademy.icomp.ufam.edu.br/portfolio",
     githubUrl: "https://github.com/users/webacademyufam/projects/25",
     gradient:
       "from-emerald-500/20 to-teal-500/20 dark:from-emerald-500/10 dark:to-teal-500/10",
